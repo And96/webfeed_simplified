@@ -15,7 +15,7 @@ class RssItem {
   final String? link;
 
   //final List<RssCategory>? categories;
-  //final String? guid;
+  final String? guid;
   final DateTime? pubDate;
   //final String? author;
   //final String? comments;
@@ -52,7 +52,7 @@ class RssItem {
           .findElements('category')
           .map((e) => RssCategory.parse(e))
           .toList(),*/
-      /*guid: element.findElements('guid').firstOrNull?.text,*/
+      guid: element.findElements('guid').firstOrNull?.text,
       pubDate: parseDateTime(element.findElements('pubDate').firstOrNull?.text),
       /*author: element.findElements('author').firstOrNull?.text,
       comments: element.findElements('comments').firstOrNull?.text,
