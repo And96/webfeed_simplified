@@ -73,7 +73,7 @@ class RssFeed {
     }
     return RssFeed(
       title: channelElement.findElements('title').firstOrNull?.text,
-      author: channelElement.findElements('author').firstOrNull?.text,
+      //author: channelElement.findElements('author').firstOrNull?.text,
       description: channelElement.findElements('description').firstOrNull?.text,
       link: channelElement.findElements('link').firstOrNull?.text,
       items: (rdf ?? channelElement)
@@ -84,32 +84,32 @@ class RssFeed {
           .findElements('image')
           .map((e) => RssImage.parse(e))
           .firstOrNull,
-      cloud: channelElement
+      /*cloud: channelElement
           .findElements('cloud')
           .map((e) => RssCloud.parse(e))
-          .firstOrNull,
-      categories: channelElement
+          .firstOrNull,*/
+      /*categories: channelElement
           .findElements('category')
           .map((e) => RssCategory.parse(e))
-          .toList(),
-      skipDays: channelElement
+          .toList(),*/
+      /*skipDays: channelElement
               .findElements('skipDays')
               .firstOrNull
               ?.findAllElements('day')
               .map((e) => e.text)
               .toList() ??
-          [],
-      skipHours: channelElement
+          [],*/
+      /*skipHours: channelElement
               .findElements('skipHours')
               .firstOrNull
               ?.findAllElements('hour')
               .map((e) => int.tryParse(e.text) ?? 0)
               .toList() ??
-          [],
+          [],*/
       lastBuildDate:
           channelElement.findElements('lastBuildDate').firstOrNull?.text,
       language: channelElement.findElements('language').firstOrNull?.text,
-      generator: channelElement.findElements('generator').firstOrNull?.text,
+      /*generator: channelElement.findElements('generator').firstOrNull?.text,
       copyright: channelElement.findElements('copyright').firstOrNull?.text,
       docs: channelElement.findElements('docs').firstOrNull?.text,
       managingEditor:
@@ -120,7 +120,7 @@ class RssFeed {
           channelElement.findElements('ttl').firstOrNull?.text ?? '0'),
       dc: DublinCore.parse(channelElement),
       itunes: Itunes.parse(channelElement),
-      syndication: Syndication.parse(channelElement),
+      syndication: Syndication.parse(channelElement),*/
     );
   }
 }
