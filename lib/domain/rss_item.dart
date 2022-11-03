@@ -31,7 +31,7 @@ class RssItem {
     this.description,
     this.link,
     //this.categories,
-    //this.guid,
+    this.guid,
     this.pubDate,
     //this.author,
     //this.comments,
