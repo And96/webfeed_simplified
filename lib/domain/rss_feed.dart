@@ -15,7 +15,7 @@ class RssFeed {
   //final String? author;
   final String? description;
   final String? link;
-  //final List<RssItem>? items;
+  final List<RssItem>? items;
 
   //final RssImage? image;
   //final RssCloud? cloud;
@@ -40,7 +40,7 @@ class RssFeed {
     //this.author,
     this.description,
     this.link,
-    //this.items,
+    this.items,
     //this.image,
     //this.cloud,
     //this.categories,
@@ -76,10 +76,10 @@ class RssFeed {
       //author: channelElement.findElements('author').firstOrNull?.text,
       description: channelElement.findElements('description').firstOrNull?.text,
       link: channelElement.findElements('link').firstOrNull?.text,
-      /*items: (rdf ?? channelElement)
+      items: (rdf ?? channelElement)
           .findElements('item')
           .map((e) => RssItem.parse(e))
-          .toList(),*/
+          .toList(),
       /*image: (rdf ?? channelElement)
           .findElements('image')
           .map((e) => RssImage.parse(e))
