@@ -72,7 +72,7 @@ class RssFeed {
       throw ArgumentError('channel not found');
     }
     return RssFeed(
-      title: 'TEST'//channelElement.findElements('title').firstOrNull?.text,
+      title: channelElement.findElements('title').firstOrNull?.text,
       //author: channelElement.findElements('author').firstOrNull?.text,
       description: channelElement.findElements('description').firstOrNull?.text,
       link: channelElement.findElements('link').firstOrNull?.text,
