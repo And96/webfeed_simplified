@@ -1,8 +1,8 @@
-/*import 'package:webfeed/domain/atom_category.dart';
+//import 'package:webfeed/domain/atom_category.dart';
 import 'package:webfeed/domain/atom_link.dart';
-import 'package:webfeed/domain/atom_person.dart';
-import 'package:webfeed/domain/atom_source.dart';
-import 'package:webfeed/domain/media/media.dart';*/
+//import 'package:webfeed/domain/atom_person.dart';
+//import 'package:webfeed/domain/atom_source.dart';
+//import 'package:webfeed/domain/media/media.dart';*/
 import 'package:webfeed/util/datetime.dart';
 import 'package:webfeed/util/iterable.dart';
 import 'package:xml/xml.dart';
@@ -13,13 +13,13 @@ class AtomItem {
   final DateTime? updated;
 
   //final List<AtomPerson>? authors;
-  //final List<AtomLink>? links;
-  /*final List<AtomCategory>? categories;
-  final List<AtomPerson>? contributors;
-  final AtomSource? source;*/
+  final List<AtomLink>? links;
+  //final List<AtomCategory>? categories;
+  //final List<AtomPerson>? contributors;
+  //final AtomSource? source;
   final String? published;
   final String? content;
-  final String? summary;
+  /*final String? summary;
   final String? rights;
   final Media? media;*/
 
@@ -27,9 +27,9 @@ class AtomItem {
     this.id,
     this.title,
     this.updated,
-    /*this.authors,
+    ///this.authors,
     this.links,
-    this.categories,
+    /*this.categories,
     this.contributors,
     this.source,*/
     this.published,
@@ -47,10 +47,10 @@ class AtomItem {
       /*authors: element
           .findElements('author')
           .map((e) => AtomPerson.parse(e))
-          .toList(),
+          .toList(),*/
       links:
           element.findElements('link').map((e) => AtomLink.parse(e)).toList(),
-      categories: element
+      /*categories: element
           .findElements('category')
           .map((e) => AtomCategory.parse(e))
           .toList(),
