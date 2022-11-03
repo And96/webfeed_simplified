@@ -14,33 +14,33 @@ class RssItem {
   final String? description;
   final String? link;
 
-  final List<RssCategory>? categories;
-  final String? guid;
+  //final List<RssCategory>? categories;
+  //final String? guid;
   final DateTime? pubDate;
-  final String? author;
-  final String? comments;
-  final RssSource? source;
-  final RssContent? content;
-  final Media? media;
-  final RssEnclosure? enclosure;
-  final DublinCore? dc;
-  final Itunes? itunes;
+  //final String? author;
+  //final String? comments;
+  //final RssSource? source;
+  //final RssContent? content;
+  //final Media? media;
+  //final RssEnclosure? enclosure;
+  //final DublinCore? dc;
+  //final Itunes? itunes;
 
   RssItem({
     this.title,
     this.description,
     this.link,
-    this.categories,
-    this.guid,
+    //this.categories,
+    //this.guid,
     this.pubDate,
-    this.author,
-    this.comments,
-    this.source,
-    this.content,
-    this.media,
-    this.enclosure,
-    this.dc,
-    this.itunes,
+    //this.author,
+    //this.comments,
+    //this.source,
+    //this.content,
+    //this.media,
+    //this.enclosure,
+    //this.dc,
+    //this.itunes,
   });
 
   factory RssItem.parse(XmlElement element) {
@@ -48,13 +48,13 @@ class RssItem {
       title: element.findElements('title').firstOrNull?.text,
       description: element.findElements('description').firstOrNull?.text,
       link: element.findElements('link').firstOrNull?.text,
-      categories: element
+      /*categories: element
           .findElements('category')
           .map((e) => RssCategory.parse(e))
-          .toList(),
-      guid: element.findElements('guid').firstOrNull?.text,
+          .toList(),*/
+      /*guid: element.findElements('guid').firstOrNull?.text,*/
       pubDate: parseDateTime(element.findElements('pubDate').firstOrNull?.text),
-      author: element.findElements('author').firstOrNull?.text,
+      /*author: element.findElements('author').firstOrNull?.text,
       comments: element.findElements('comments').firstOrNull?.text,
       source: element
           .findElements('source')
@@ -70,7 +70,7 @@ class RssItem {
           .map((e) => RssEnclosure.parse(e))
           .firstOrNull,
       dc: DublinCore.parse(element),
-      itunes: Itunes.parse(element),
+      itunes: Itunes.parse(element),*/
     );
   }
 }
