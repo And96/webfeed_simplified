@@ -12,19 +12,19 @@ import 'package:xml/xml.dart';
 
 class RssFeed {
   final String? title;
-  final String? author;
+  //final String? author;
   final String? description;
   final String? link;
-  final List<RssItem>? items;
+  //final List<RssItem>? items;
 
-  final RssImage? image;
-  final RssCloud? cloud;
-  final List<RssCategory>? categories;
-  final List<String>? skipDays;
-  final List<int>? skipHours;
+  //final RssImage? image;
+  //final RssCloud? cloud;
+  //final List<RssCategory>? categories;
+  //final List<String>? skipDays;
+  //final List<int>? skipHours;
   final String? lastBuildDate;
   final String? language;
-  final String? generator;
+  /*final String? generator;
   final String? copyright;
   final String? docs;
   final String? managingEditor;
@@ -33,22 +33,22 @@ class RssFeed {
   final int? ttl;
   final DublinCore? dc;
   final Itunes? itunes;
-  final Syndication? syndication;
+  final Syndication? syndication;*/
 
   RssFeed({
     this.title,
-    this.author,
+    //this.author,
     this.description,
     this.link,
-    this.items,
-    this.image,
-    this.cloud,
-    this.categories,
-    this.skipDays,
-    this.skipHours,
+    //this.items,
+    //this.image,
+    //this.cloud,
+    //this.categories,
+    //this.skipDays,
+    //this.skipHours,
     this.lastBuildDate,
     this.language,
-    this.generator,
+    /*this.generator,
     this.copyright,
     this.docs,
     this.managingEditor,
@@ -57,7 +57,7 @@ class RssFeed {
     this.ttl,
     this.dc,
     this.itunes,
-    this.syndication,
+    this.syndication,*/
   });
 
   factory RssFeed.parse(String xmlString) {
@@ -72,18 +72,18 @@ class RssFeed {
       throw ArgumentError('channel not found');
     }
     return RssFeed(
-      title: channelElement.findElements('title').firstOrNull?.text,
+      title: 'TEST'//channelElement.findElements('title').firstOrNull?.text,
       //author: channelElement.findElements('author').firstOrNull?.text,
       description: channelElement.findElements('description').firstOrNull?.text,
       link: channelElement.findElements('link').firstOrNull?.text,
-      items: (rdf ?? channelElement)
+      /*items: (rdf ?? channelElement)
           .findElements('item')
           .map((e) => RssItem.parse(e))
-          .toList(),
-      image: (rdf ?? channelElement)
+          .toList(),*/
+      /*image: (rdf ?? channelElement)
           .findElements('image')
           .map((e) => RssImage.parse(e))
-          .firstOrNull,
+          .firstOrNull,*/
       /*cloud: channelElement
           .findElements('cloud')
           .map((e) => RssCloud.parse(e))
