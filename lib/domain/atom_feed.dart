@@ -1,8 +1,8 @@
-import 'package:webfeed/domain/atom_category.dart';
-import 'package:webfeed/domain/atom_generator.dart';
+//import 'package:webfeed/domain/atom_category.dart';
+//import 'package:webfeed/domain/atom_generator.dart';
 import 'package:webfeed/domain/atom_item.dart';
-import 'package:webfeed/domain/atom_link.dart';
-import 'package:webfeed/domain/atom_person.dart';
+//import 'package:webfeed/domain/atom_link.dart';
+//import 'package:webfeed/domain/atom_person.dart';
 import 'package:webfeed/util/datetime.dart';
 import 'package:webfeed/util/iterable.dart';
 import 'package:xml/xml.dart';
@@ -13,14 +13,14 @@ class AtomFeed {
   final DateTime? updated;
   final List<AtomItem>? items;
 
-  final List<AtomLink>? links;
-  final List<AtomPerson>? authors;
-  final List<AtomPerson>? contributors;
-  final List<AtomCategory>? categories;
-  final AtomGenerator? generator;
-  final String? icon;
-  final String? logo;
-  final String? rights;
+  //final List<AtomLink>? links;
+  //final List<AtomPerson>? authors;
+  //final List<AtomPerson>? contributors;
+  //final List<AtomCategory>? categories;
+  //final AtomGenerator? generator;
+  //final String? icon;
+  //final String? logo;
+  //final String? rights;
   final String? subtitle;
 
   AtomFeed({
@@ -28,14 +28,14 @@ class AtomFeed {
     this.title,
     this.updated,
     this.items,
-    this.links,
+    /*this.links,
     this.authors,
     this.contributors,
     this.categories,
     this.generator,
     this.icon,
     this.logo,
-    this.rights,
+    this.rights,*/
     this.subtitle,
   });
 
@@ -55,7 +55,7 @@ class AtomFeed {
           .findElements('entry')
           .map((e) => AtomItem.parse(e))
           .toList(),
-      links: feedElement
+      /*links: feedElement
           .findElements('link')
           .map((e) => AtomLink.parse(e))
           .toList(),
@@ -77,7 +77,7 @@ class AtomFeed {
           .firstOrNull,
       icon: feedElement.findElements('icon').firstOrNull?.text,
       logo: feedElement.findElements('logo').firstOrNull?.text,
-      rights: feedElement.findElements('rights').firstOrNull?.text,
+      rights: feedElement.findElements('rights').firstOrNull?.text,*/
       subtitle: feedElement.findElements('subtitle').firstOrNull?.text,
     );
   }
