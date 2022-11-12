@@ -27,6 +27,7 @@ class AtomItem {
     this.id,
     this.title,
     this.updated,
+
     ///this.authors,
     this.links,
     /*this.categories,
