@@ -4,7 +4,7 @@ import 'dart:core';
 //import 'package:webfeed/domain/itunes/itunes.dart';
 //import 'package:webfeed/domain/rss_category.dart';
 //import 'package:webfeed/domain/rss_cloud.dart';
-//import 'package:webfeed/domain/rss_image.dart';
+import 'package:webfeed/domain/rss_image.dart';
 import 'package:webfeed/domain/rss_item.dart';
 //import 'package:webfeed/domain/syndication/syndication.dart';
 import 'package:webfeed/util/iterable.dart';
@@ -17,7 +17,7 @@ class RssFeed {
   final String? link;
   final List<RssItem>? items;
 
-  //final RssImage? image;
+  final RssImage? image;
   //final RssCloud? cloud;
   //final List<RssCategory>? categories;
   //final List<String>? skipDays;
@@ -41,7 +41,7 @@ class RssFeed {
     this.description,
     this.link,
     this.items,
-    //this.image,
+    this.image,
     //this.cloud,
     //this.categories,
     //this.skipDays,
@@ -80,10 +80,10 @@ class RssFeed {
           .findElements('item')
           .map((e) => RssItem.parse(e))
           .toList(),
-      /*image: (rdf ?? channelElement)
+      image: (rdf ?? channelElement)
           .findElements('image')
           .map((e) => RssImage.parse(e))
-          .firstOrNull,*/
+          .firstOrNull,
       /*cloud: channelElement
           .findElements('cloud')
           .map((e) => RssCloud.parse(e))
