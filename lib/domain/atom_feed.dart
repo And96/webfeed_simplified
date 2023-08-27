@@ -47,10 +47,10 @@ class AtomFeed {
     }
 
     return AtomFeed(
-      id: feedElement.findElements('id').firstOrNull?.text,
-      title: feedElement.findElements('title').firstOrNull?.text,
-      updated:
-          parseDateTime(feedElement.findElements('updated').firstOrNull?.text),
+      id: feedElement.findElements('id').firstOrNull?.value.toString(),
+      title: feedElement.findElements('title').firstOrNull?.value.toString(),
+      updated: parseDateTime(
+          feedElement.findElements('updated').firstOrNull?.value.toString()),
       items: feedElement
           .findElements('entry')
           .map((e) => AtomItem.parse(e))
@@ -75,10 +75,11 @@ class AtomFeed {
           .findElements('generator')
           .map((e) => AtomGenerator.parse(e))
           .firstOrNull,
-      icon: feedElement.findElements('icon').firstOrNull?.text,
-      logo: feedElement.findElements('logo').firstOrNull?.text,
-      rights: feedElement.findElements('rights').firstOrNull?.text,*/
-      subtitle: feedElement.findElements('subtitle').firstOrNull?.text,
+      icon: feedElement.findElements('icon').firstOrNull?.value.toString(),
+      logo: feedElement.findElements('logo').firstOrNull?.value.toString(),
+      rights: feedElement.findElements('rights').firstOrNull?.value.toString(),*/
+      subtitle:
+          feedElement.findElements('subtitle').firstOrNull?.value.toString(),
     );
   }
 }

@@ -21,7 +21,13 @@ Iterable<XmlElement>? findElements(
 }
 
 bool parseBoolLiteral(XmlElement element, String tagName) {
-  var v = element.findElements(tagName).firstOrNull?.text.toLowerCase().trim();
+  var v = element
+      .findElements(tagName)
+      .firstOrNull
+      ?.value
+      .toString()
+      .toLowerCase()
+      .trim();
   if (v == null) return false;
   return ['yes', 'true'].contains(v);
 }

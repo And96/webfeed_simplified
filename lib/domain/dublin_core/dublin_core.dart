@@ -43,25 +43,33 @@ class DublinCore {
 
   factory DublinCore.parse(XmlElement element) {
     return DublinCore(
-      title: element.findElements('dc:title').firstOrNull?.text,
-      description: element.findElements('dc:description').firstOrNull?.text,
-      creator: element.findElements('dc:creator').firstOrNull?.text,
-      subject: element.findElements('dc:subject').firstOrNull?.text,
-      publisher: element.findElements('dc:publisher').firstOrNull?.text,
-      contributor: element.findElements('dc:contributor').firstOrNull?.text,
-      date: parseDateTime(element.findElements('dc:date').firstOrNull?.text),
-      created:
-          parseDateTime(element.findElements('dc:created').firstOrNull?.text),
-      modified:
-          parseDateTime(element.findElements('dc:modified').firstOrNull?.text),
-      type: element.findElements('dc:type').firstOrNull?.text,
-      format: element.findElements('dc:format').firstOrNull?.text,
-      identifier: element.findElements('dc:identifier').firstOrNull?.text,
-      source: element.findElements('dc:source').firstOrNull?.text,
-      language: element.findElements('dc:language').firstOrNull?.text,
-      relation: element.findElements('dc:relation').firstOrNull?.text,
-      coverage: element.findElements('dc:coverage').firstOrNull?.text,
-      rights: element.findElements('dc:rights').firstOrNull?.text,
+      title: element.findElements('dc:title').firstOrNull?.value.toString(),
+      description:
+          element.findElements('dc:description').firstOrNull?.value.toString(),
+      creator: element.findElements('dc:creator').firstOrNull?.value.toString(),
+      subject: element.findElements('dc:subject').firstOrNull?.value.toString(),
+      publisher:
+          element.findElements('dc:publisher').firstOrNull?.value.toString(),
+      contributor:
+          element.findElements('dc:contributor').firstOrNull?.value.toString(),
+      date: parseDateTime(
+          element.findElements('dc:date').firstOrNull?.value.toString()),
+      created: parseDateTime(
+          element.findElements('dc:created').firstOrNull?.value.toString()),
+      modified: parseDateTime(
+          element.findElements('dc:modified').firstOrNull?.value.toString()),
+      type: element.findElements('dc:type').firstOrNull?.value.toString(),
+      format: element.findElements('dc:format').firstOrNull?.value.toString(),
+      identifier:
+          element.findElements('dc:identifier').firstOrNull?.value.toString(),
+      source: element.findElements('dc:source').firstOrNull?.value.toString(),
+      language:
+          element.findElements('dc:language').firstOrNull?.value.toString(),
+      relation:
+          element.findElements('dc:relation').firstOrNull?.value.toString(),
+      coverage:
+          element.findElements('dc:coverage').firstOrNull?.value.toString(),
+      rights: element.findElements('dc:rights').firstOrNull?.value.toString(),
     );
   }
 }

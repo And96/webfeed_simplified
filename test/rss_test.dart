@@ -48,9 +48,9 @@ void main() {
 
     expect(feed.categories!.length, 2);
     expect(feed.categories![0].domain, null);
-    expect(feed.categories![0].value, 'Ipsum');
+    expect(feed.categories![0].value.toString(), 'Ipsum');
     expect(feed.categories![1].domain, 'news');
-    expect(feed.categories![1].value, 'Lorem Ipsum');
+    expect(feed.categories![1].value.toString(), 'Lorem Ipsum');
 
     expect(feed.skipDays!.length, 3);
     expect(feed.skipDays!.contains('Monday'), true);
@@ -75,17 +75,17 @@ void main() {
     expect(feed.items!.first.pubDate,
         DateTime(2018, 03, 26, 14)); //Mon, 26 Mar 2018 14:00:00 PDT
     expect(feed.items!.first.categories!.first.domain, 'news');
-    expect(feed.items!.first.categories!.first.value, 'Lorem');
+    expect(feed.items!.first.categories!.first.value.toString(), 'Lorem');
     expect(feed.items!.first.author, 'alice@foo.bar.news');
     expect(feed.items!.first.source!.url, 'https://foo.bar.news/1?source');
-    expect(feed.items!.first.source!.value, 'Foo Bar');
+    expect(feed.items!.first.source!.value.toString(), 'Foo Bar');
     expect(feed.items!.first.comments, 'https://foo.bar.news/1/comments');
     expect(feed.items!.first.enclosure!.url,
         'http://www.scripting.com/mp3s/weatherReportSuite.mp3');
     expect(feed.items!.first.enclosure!.length, 12216320);
     expect(feed.items!.first.enclosure!.type, 'audio/mpeg');
 
-    expect(feed.items!.first.content!.value,
+    expect(feed.items!.first.content!.value.toString(),
         '<img width="1000" height="690" src="https://test.com/image_link"/> Test content<br />');
     expect(
         feed.items!.first.content!.images.first, 'https://test.com/image_link');*/
@@ -108,8 +108,8 @@ void main() {
 
     expect(item.media!.group!.contents!.length, 5);
     expect(item.media!.group!.credits!.length, 2);
-    expect(item.media!.group!.category!.value, 'music/artist name/album/song');
-    expect(item.media!.group!.rating!.value, 'nonadult');
+    expect(item.media!.group!.category!.value.toString(), 'music/artist name/album/song');
+    expect(item.media!.group!.rating!.value.toString(), 'nonadult');
 
     expect(item.media!.contents!.length, 2);
     var mediaContent = item.media!.contents!.first;
@@ -128,21 +128,21 @@ void main() {
     var mediaCredit = item.media!.credits!.first;
     expect(mediaCredit.role, 'owner1');
     expect(mediaCredit.scheme, 'urn:yvs');
-    expect(mediaCredit.value, 'copyright holder of the entity');
+    expect(mediaCredit.value.toString(), 'copyright holder of the entity');
 
     expect(item.media!.category!.scheme,
         'http://search.yahoo.com/mrss/category_ schema');
     expect(item.media!.category!.label, 'Music');
-    expect(item.media!.category!.value, 'music/artist/album/song');
+    expect(item.media!.category!.value.toString(), 'music/artist/album/song');
 
     expect(item.media!.rating!.scheme, 'urn:simple');
-    expect(item.media!.rating!.value, 'adult');
+    expect(item.media!.rating!.value.toString(), 'adult');
 
     expect(item.media!.title!.type, 'plain');
-    expect(item.media!.title!.value, "The Judy's -- The Moo Song");
+    expect(item.media!.title!.value.toString(), "The Judy's -- The Moo Song");
 
     expect(item.media!.description!.type, 'plain');
-    expect(item.media!.description!.value,
+    expect(item.media!.description!.value.toString(),
         'This was some really bizarre band I listened to as a young lad.');
 
     expect(item.media!.keywords, 'kitty, cat, big dog, yarn, fluffy');
@@ -155,25 +155,25 @@ void main() {
     expect(mediaThumbnail.time, '12:05:01.123');
 
     expect(item.media!.hash!.algo, 'md5');
-    expect(item.media!.hash!.value, 'dfdec888b72151965a34b4b59031290a');
+    expect(item.media!.hash!.value.toString(), 'dfdec888b72151965a34b4b59031290a');
 
     expect(item.media!.player!.url, 'http://www.foo.com/player?id=1111');
     expect(item.media!.player!.width, 400);
     expect(item.media!.player!.height, 200);
-    expect(item.media!.player!.value, '');
+    expect(item.media!.player!.value.toString(), '');
 
     expect(item.media!.copyright!.url, 'http://blah.com/additional-info.html');
-    expect(item.media!.copyright!.value, '2005 FooBar Media');
+    expect(item.media!.copyright!.value.toString(), '2005 FooBar Media');
 
-    expect(item.media!.text!.type, 'plain');
-    expect(item.media!.text!.lang, 'en');
-    expect(item.media!.text!.start, '00:00:03.000');
-    expect(item.media!.text!.end, '00:00:10.000');
-    expect(item.media!.text!.value, ' Oh, say, can you see');
+    expect(item.media!.value.toString()!.type, 'plain');
+    expect(item.media!.value.toString()!.lang, 'en');
+    expect(item.media!.value.toString()!.start, '00:00:03.000');
+    expect(item.media!.value.toString()!.end, '00:00:10.000');
+    expect(item.media!.value.toString()!.value.toString(), ' Oh, say, can you see');
 
     expect(item.media!.restriction!.relationship, 'allow');
     expect(item.media!.restriction!.type, 'country');
-    expect(item.media!.restriction!.value, 'au us');
+    expect(item.media!.restriction!.value.toString(), 'au us');
 
     expect(item.media!.community!.starRating!.average, 3.5);
     expect(item.media!.community!.starRating!.count, 20);
@@ -193,7 +193,7 @@ void main() {
     expect(item.media!.embed!.height, 323);
     expect(item.media!.embed!.params!.length, 5);
     expect(item.media!.embed!.params!.first.name, 'type');
-    expect(item.media!.embed!.params!.first.value,
+    expect(item.media!.embed!.params!.first.value.toString(),
         'application/x-shockwave-flash');
 
     expect(item.media!.responses!.length, 2);
@@ -216,11 +216,11 @@ void main() {
 
     expect(item.media!.license!.type, 'text/html');
     expect(item.media!.license!.href, 'http://www.licensehost.com/license');
-    expect(item.media!.license!.value, ' Sample license for a video');
+    expect(item.media!.license!.value.toString(), ' Sample license for a video');
 
     expect(item.media!.peerLink!.type, 'application/x-bittorrent');
     expect(item.media!.peerLink!.href, 'http://www.foo.org/sampleFile.torrent');
-    expect(item.media!.peerLink!.value, '');
+    expect(item.media!.peerLink!.value.toString(), '');
 
     expect(item.media!.rights!.status, 'official');
 
