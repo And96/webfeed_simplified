@@ -10,9 +10,9 @@ class RssImage {
 
   factory RssImage.parse(XmlElement element) {
     return RssImage(
-      title: element.findElements('title').firstOrNull?.value.toString(),
-      url: element.findElements('url').firstOrNull?.value.toString(),
-      link: element.findElements('link').firstOrNull?.value.toString(),
+      title: element.findElements('title').firstOrNull?.innerText,
+      url: element.findElements('url').firstOrNull?.innerText,
+      link: element.findElements('link').firstOrNull?.innerText,
     );
   }
 }

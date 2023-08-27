@@ -24,7 +24,7 @@ bool parseBoolLiteral(XmlElement element, String tagName) {
   var v = element
       .findElements(tagName)
       .firstOrNull
-      ?.value
+      ?.innerText
       .toString()
       .toLowerCase()
       .trim();

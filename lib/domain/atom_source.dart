@@ -14,9 +14,9 @@ class AtomSource {
 
   factory AtomSource.parse(XmlElement element) {
     return AtomSource(
-      id: element.findElements('id').firstOrNull?.value.toString(),
-      title: element.findElements('title').firstOrNull?.value.toString(),
-      updated: element.findElements('updated').firstOrNull?.value.toString(),
+      id: element.findElements('id').firstOrNull?.innerText,
+      title: element.findElements('title').firstOrNull?.innerText,
+      updated: element.findElements('updated').firstOrNull?.innerText,
     );
   }
 }

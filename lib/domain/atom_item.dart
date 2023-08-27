@@ -42,10 +42,10 @@ class AtomItem {
 
   factory AtomItem.parse(XmlElement element) {
     return AtomItem(
-      id: element.findElements('id').firstOrNull?.value.toString(),
-      title: element.findElements('title').firstOrNull?.value.toString(),
-      updated: parseDateTime(
-          element.findElements('updated').firstOrNull?.value.toString()),
+      id: element.findElements('id').firstOrNull?.innerText,
+      title: element.findElements('title').firstOrNull?.innerText,
+      updated:
+          parseDateTime(element.findElements('updated').firstOrNull?.innerText),
       /*authors: element
           .findElements('author')
           .map((e) => AtomPerson.parse(e))
@@ -64,11 +64,10 @@ class AtomItem {
           .findElements('source')
           .map((e) => AtomSource.parse(e))
           .firstOrNull,*/
-      published:
-          element.findElements('published').firstOrNull?.value.toString(),
-      content: element.findElements('content').firstOrNull?.value.toString(),
-      /*summary: element.findElements('summary').firstOrNull?.value.toString(),
-      rights: element.findElements('rights').firstOrNull?.value.toString(),
+      published: element.findElements('published').firstOrNull?.innerText,
+      content: element.findElements('content').firstOrNull?.innerText,
+      /*summary: element.findElements('summary').firstOrNull?.innerText,
+      rights: element.findElements('rights').firstOrNull?.innerText,
       media: Media.parse(element),*/
     );
   }

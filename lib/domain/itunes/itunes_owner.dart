@@ -12,13 +12,13 @@ class ItunesOwner {
       name: element
           .findElements('itunes:name')
           .firstOrNull
-          ?.value
+          ?.innerText
           .toString()
           .trim(),
       email: element
           .findElements('itunes:email')
           .firstOrNull
-          ?.value
+          ?.innerText
           .toString()
           .trim(),
     );

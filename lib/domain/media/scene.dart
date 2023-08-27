@@ -16,16 +16,14 @@ class Scene {
 
   factory Scene.parse(XmlElement element) {
     return Scene(
-      title: element.findElements('sceneTitle').firstOrNull?.value.toString(),
+      title: element.findElements('sceneTitle').firstOrNull?.innerText,
       description: element
           .findElements('sceneDescription')
           .firstOrNull
-          ?.value
+          ?.innerText
           .toString(),
-      startTime:
-          element.findElements('sceneStartTime').firstOrNull?.value.toString(),
-      endTime:
-          element.findElements('sceneEndTime').firstOrNull?.value.toString(),
+      startTime: element.findElements('sceneStartTime').firstOrNull?.innerText,
+      endTime: element.findElements('sceneEndTime').firstOrNull?.innerText,
     );
   }
 }

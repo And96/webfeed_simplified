@@ -15,7 +15,7 @@ class Restriction {
     return Restriction(
       relationship: element.getAttribute('relationship'),
       type: element.getAttribute('type'),
-      value: element.value.toString(),
+      value: element.innerText,
     );
   }
 }

@@ -48,7 +48,7 @@ void main() {
 
     expect(feed.generator!.uri, 'http://foo.bar.news/generator');
     expect(feed.generator!.version, '1.0');
-    expect(feed.generator!.value.toString(), 'Foo bar generator');
+    expect(feed.generator!.innerText, 'Foo bar generator');
 
     expect(feed.icon, 'http://foo.bar.news/icon.png');
     expect(feed.logo, 'http://foo.bar.news/logo.png');
@@ -101,8 +101,8 @@ void main() {
     var item = feed.items!.first;
     expect(item.media!.group!.contents!.length, 5);
     expect(item.media!.group!.credits!.length, 2);
-    expect(item.media!.group!.category!.value.toString(), 'music/artist name/album/song');
-    expect(item.media!.group!.rating!.value.toString(), 'nonadult');
+    expect(item.media!.group!.category!.innerText, 'music/artist name/album/song');
+    expect(item.media!.group!.rating!.innerText, 'nonadult');
 
     expect(item.media!.contents!.length, 2);
     var mediaContent = item.media!.contents!.first;
@@ -121,21 +121,21 @@ void main() {
     var mediaCredit = item.media!.credits!.first;
     expect(mediaCredit.role, 'owner1');
     expect(mediaCredit.scheme, 'urn:yvs');
-    expect(mediaCredit.value.toString(), 'copyright holder of the entity');
+    expect(mediaCredit.innerText, 'copyright holder of the entity');
 
     expect(item.media!.category!.scheme,
         'http://search.yahoo.com/mrss/category_ schema');
     expect(item.media!.category!.label, 'Music');
-    expect(item.media!.category!.value.toString(), 'music/artist/album/song');
+    expect(item.media!.category!.innerText, 'music/artist/album/song');
 
     expect(item.media!.rating!.scheme, 'urn:simple');
-    expect(item.media!.rating!.value.toString(), 'adult');
+    expect(item.media!.rating!.innerText, 'adult');
 
     expect(item.media!.title!.type, 'plain');
-    expect(item.media!.title!.value.toString(), "The Judy's -- The Moo Song");
+    expect(item.media!.title!.innerText, "The Judy's -- The Moo Song");
 
     expect(item.media!.description!.type, 'plain');
-    expect(item.media!.description!.value.toString(),
+    expect(item.media!.description!.innerText,
         'This was some really bizarre band I listened to as a young lad.');
 
     expect(item.media!.keywords, 'kitty, cat, big dog, yarn, fluffy');
@@ -148,25 +148,25 @@ void main() {
     expect(mediaThumbnail.time, '12:05:01.123');
 
     expect(item.media!.hash!.algo, 'md5');
-    expect(item.media!.hash!.value.toString(), 'dfdec888b72151965a34b4b59031290a');
+    expect(item.media!.hash!.innerText, 'dfdec888b72151965a34b4b59031290a');
 
     expect(item.media!.player!.url, 'http://www.foo.com/player?id=1111');
     expect(item.media!.player!.width, 400);
     expect(item.media!.player!.height, 200);
-    expect(item.media!.player!.value.toString(), '');
+    expect(item.media!.player!.innerText, '');
 
     expect(item.media!.copyright!.url, 'http://blah.com/additional-info.html');
-    expect(item.media!.copyright!.value.toString(), '2005 FooBar Media');
+    expect(item.media!.copyright!.innerText, '2005 FooBar Media');
 
-    expect(item.media!.value.toString()!.type, 'plain');
-    expect(item.media!.value.toString()!.lang, 'en');
-    expect(item.media!.value.toString()!.start, '00:00:03.000');
-    expect(item.media!.value.toString()!.end, '00:00:10.000');
-    expect(item.media!.value.toString()!.value.toString(), ' Oh, say, can you see');
+    expect(item.media!.innerText!.type, 'plain');
+    expect(item.media!.innerText!.lang, 'en');
+    expect(item.media!.innerText!.start, '00:00:03.000');
+    expect(item.media!.innerText!.end, '00:00:10.000');
+    expect(item.media!.innerText!.innerText, ' Oh, say, can you see');
 
     expect(item.media!.restriction!.relationship, 'allow');
     expect(item.media!.restriction!.type, 'country');
-    expect(item.media!.restriction!.value.toString(), 'au us');
+    expect(item.media!.restriction!.innerText, 'au us');
 
     expect(item.media!.community!.starRating!.average, 3.5);
     expect(item.media!.community!.starRating!.count, 20);
@@ -186,7 +186,7 @@ void main() {
     expect(item.media!.embed!.height, 323);
     expect(item.media!.embed!.params!.length, 5);
     expect(item.media!.embed!.params!.first.name, 'type');
-    expect(item.media!.embed!.params!.first.value.toString(),
+    expect(item.media!.embed!.params!.first.innerText,
         'application/x-shockwave-flash');
 
     expect(item.media!.responses!.length, 2);
@@ -209,11 +209,11 @@ void main() {
 
     expect(item.media!.license!.type, 'text/html');
     expect(item.media!.license!.href, 'http://www.licensehost.com/license');
-    expect(item.media!.license!.value.toString(), ' Sample license for a video');
+    expect(item.media!.license!.innerText, ' Sample license for a video');
 
     expect(item.media!.peerLink!.type, 'application/x-bittorrent');
     expect(item.media!.peerLink!.href, 'http://www.foo.org/sampleFile.torrent');
-    expect(item.media!.peerLink!.value.toString(), '');
+    expect(item.media!.peerLink!.innerText, '');
 
     expect(item.media!.rights!.status, 'official');
 

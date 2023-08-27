@@ -45,19 +45,18 @@ class RssItem {
 
   factory RssItem.parse(XmlElement element) {
     return RssItem(
-      title: element.findElements('title').firstOrNull?.value.toString(),
-      description:
-          element.findElements('description').firstOrNull?.value.toString(),
-      link: element.findElements('link').firstOrNull?.value.toString(),
+      title: element.findElements('title').firstOrNull?.innerText,
+      description: element.findElements('description').firstOrNull?.innerText,
+      link: element.findElements('link').firstOrNull?.innerText,
       /*categories: element
           .findElements('category')
           .map((e) => RssCategory.parse(e))
           .toList(),*/
-      guid: element.findElements('guid').firstOrNull?.value.toString(),
-      //pubDate: parseDateTime(element.findElements('pubDate').firstOrNull?.value.toString()),
-      pubDate: element.findElements('pubDate').firstOrNull?.value.toString(),
-      /*author: element.findElements('author').firstOrNull?.value.toString(),
-      comments: element.findElements('comments').firstOrNull?.value.toString(),
+      guid: element.findElements('guid').firstOrNull?.innerText,
+      //pubDate: parseDateTime(element.findElements('pubDate').firstOrNull?.innerText),
+      pubDate: element.findElements('pubDate').firstOrNull?.innerText,
+      /*author: element.findElements('author').firstOrNull?.innerText,
+      comments: element.findElements('comments').firstOrNull?.innerText,
       source: element
           .findElements('source')
           .map((e) => RssSource.parse(e))

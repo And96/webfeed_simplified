@@ -12,7 +12,7 @@ class Title {
   factory Title.parse(XmlElement element) {
     return Title(
       type: element.getAttribute('type'),
-      value: element.value.toString(),
+      value: element.innerText,
     );
   }
 }
