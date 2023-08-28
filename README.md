@@ -1,3 +1,14 @@
+
+# WebFeed_Simplified 
+a fork of webfeed with the following differences:
+- Faster because removed secondary rss tag
+- Fixed date formats bugged on original version
+- Updated dart and external libraries
+
+Original description below
+
+-----
+
 # WebFeed
 
 [![Build Status](https://travis-ci.org/witochandra/webfeed.svg?branch=master)](https://travis-ci.org/witochandra/webfeed)
