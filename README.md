@@ -1,3 +1,30 @@
+
+# WebFeed_Simplified 
+## (webfeed fork)
+
+A fast and simple version of webfeed with the following differences:
+- Faster because removed secondary rss tag
+- Fixed date formats bugged on original version
+- Updated dart and external libraries
+
+how to use:
+add in pubspec.xaml
+
+```
+dependencies: 
+   flutter: 
+     sdk: flutter 
+  
+   webfeed: 
+     git: 
+       url: https://github.com/And96/webfeed_simplified 
+       ref: master
+```
+
+Original description below
+
+-----
+
 # WebFeed
 
 [![Build Status](https://travis-ci.org/witochandra/webfeed.svg?branch=master)](https://travis-ci.org/witochandra/webfeed)
