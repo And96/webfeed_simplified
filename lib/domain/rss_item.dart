@@ -58,7 +58,7 @@ class RssItem {
       guid: element.findElements('guid').firstOrNull?.innerText,
       //pubDate: parseDateTime(element.findElements('pubDate').firstOrNull?.innerText),
       pubDate: element.findElements('pubDate').firstOrNull?.innerText,
-      source: element.findElements('source').firstOrNull?.innerText,
+      source: element.findElements('source').firstOrNull?.getAttribute('url'),
       /*author: element.findElements('author').firstOrNull?.innerText,
       comments: element.findElements('comments').firstOrNull?.innerText,
       source: element
