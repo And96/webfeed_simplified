@@ -26,22 +26,25 @@ class RssItem {
   //final DublinCore? dc;
   //final Itunes? itunes;
 
-  RssItem({
-    this.title,
-    this.description,
-    this.link,
-    //this.categories,
-    this.guid,
-    this.pubDate,
-    //this.author,
-    //this.comments,
-    //this.source,
-    //this.content,
-    //this.media,
-    //this.enclosure,
-    //this.dc,
-    //this.itunes,
-  });
+  //ADDED TO READ ORIGINAL HOST FROM GOOGLE NEWS
+  final String? source;
+
+  RssItem(
+      {this.title,
+      this.description,
+      this.link,
+      //this.categories,
+      this.guid,
+      this.pubDate,
+      //this.author,
+      //this.comments,
+      //this.source,
+      //this.content,
+      //this.media,
+      //this.enclosure,
+      //this.dc,
+      //this.itunes,
+      this.source});
 
   factory RssItem.parse(XmlElement element) {
     return RssItem(
@@ -55,6 +58,7 @@ class RssItem {
       guid: element.findElements('guid').firstOrNull?.innerText,
       //pubDate: parseDateTime(element.findElements('pubDate').firstOrNull?.innerText),
       pubDate: element.findElements('pubDate').firstOrNull?.innerText,
+      source: element.findElements('source').firstOrNull?.innerText,
       /*author: element.findElements('author').firstOrNull?.innerText,
       comments: element.findElements('comments').firstOrNull?.innerText,
       source: element

@@ -35,23 +35,20 @@ class RssFeed {
   final Itunes? itunes;
   final Syndication? syndication;*/
 
-  //ADDED TO READ ORIGINAL HOST FROM GOOGLE NEWS
-  final String? source;
-
-  RssFeed(
-      {this.title,
-      //this.author,
-      this.description,
-      this.link,
-      this.items,
-      //this.image,
-      //this.cloud,
-      //this.categories,
-      //this.skipDays,
-      //this.skipHours,
-      this.lastBuildDate,
-      this.language,
-      /*this.generator,
+  RssFeed({
+    this.title,
+    //this.author,
+    this.description,
+    this.link,
+    this.items,
+    //this.image,
+    //this.cloud,
+    //this.categories,
+    //this.skipDays,
+    //this.skipHours,
+    this.lastBuildDate,
+    this.language,
+    /*this.generator,
     this.copyright,
     this.docs,
     this.managingEditor,
@@ -61,7 +58,7 @@ class RssFeed {
     this.dc,
     this.itunes,
     this.syndication,*/
-      this.source});
+  });
 
   factory RssFeed.parse(String xmlString) {
     var document = XmlDocument.parse(xmlString);
@@ -83,7 +80,7 @@ class RssFeed {
           ?.innerText
           .toString(),
       link: channelElement.findElements('link').firstOrNull?.innerText,
-      source: channelElement.findElements('source').firstOrNull?.innerText,
+
       items: (rdf ?? channelElement)
           .findElements('item')
           .map((e) => RssItem.parse(e))
