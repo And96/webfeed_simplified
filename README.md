@@ -21,6 +21,18 @@ dependencies:
        ref: master
 ```
 
+How to update this repo and use in in aggregator_news
+```
+CREARE CARTELLA VUOTA
+APRIRE CMD
+git clone https://github.com/And96/webfeed_simplified.git
+cd webfeed_simplified
+--fare modifiche e/o aggiornare pub dev
+git add .
+git commit -m "Descrizione delle tue modifiche"
+git push origin master
+```
+
 Original description below
 
 -----
